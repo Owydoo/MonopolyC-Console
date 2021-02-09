@@ -8,7 +8,7 @@ namespace monopoly
         public uint prixDepart;
         private uint loyer;
         private Couleur couleur;
-        private Joueur proprietaire;
+        public Joueur proprietaire;
 
         private EtatTerrain etat;
 
@@ -55,6 +55,18 @@ namespace monopoly
         public bool PossedeePar(Joueur j)
         {
             return proprietaire == j;
+        }
+
+        /// <summary>
+        /// Enregistre d'abord le joueur en tant que propriétaire.
+        /// Si l'acheteur possède les autres terrains du groupe, alors
+        /// l'état du terrain passe à constructible.
+        /// </summary>
+        /// <param name="j"></param>
+        internal void EnregistreAcheteur(Joueur j)
+        {
+            proprietaire = j;
+            //TODO: verif autre Terrain Possédé Groupe
         }
 
         public override string ToString()

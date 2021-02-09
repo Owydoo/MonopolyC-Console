@@ -35,11 +35,13 @@ namespace monopoly
             if (choice == "y")
             {
                 //TODO:Vérifier les sous
-                //bool achatPossible = j.VerifAchatPossible(terrain.prixDepart);
-                //if (achatPossible)
-                //{
-
-                //}
+                bool achatPossible = j.VerifAchatPossible(terrain.prixDepart);
+                if (achatPossible)
+                {
+                    terrain.EnregistreAcheteur(j);
+                }
+                j.DebiteCompte(terrain.prixDepart);
+                Console.WriteLine($"Il vous reste {j.argent} sur votre compte.");
 
             } else {
                 Console.WriteLine("Lol le nullos !! C'est pas tres startup nation ca...");

@@ -19,7 +19,7 @@ namespace monopoly
 
     public class Joueur
     {
-        private int argent;
+        public int argent;
         public string nom;
         private Plateau plateau;
         private Case position;
@@ -43,7 +43,8 @@ namespace monopoly
         public void JouerTour()
         {
             //Lancer les dés
-            Console.WriteLine($"{nom} joue son tour\n");
+            Console.WriteLine($"{nom} joue son tour.");
+            Console.WriteLine($"{nom} a {argent}M$ sur son compte.\n");
             Lancer lancer;
 
             do
@@ -54,6 +55,15 @@ namespace monopoly
                 Avancer(3);
 
             } while (lancer.Second);
+        }
+
+        /// <summary>
+        /// Retire du compte du joueur l'argent passé en argument
+        /// </summary>
+        /// <param name="_argentADebiter"></param>
+        internal void DebiteCompte(uint _argentADebiter)
+        {
+            argent = argent - (int)_argentADebiter;
         }
 
         /// <summary>
