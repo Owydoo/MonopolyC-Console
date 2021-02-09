@@ -1,6 +1,9 @@
+using System;
+using System.Threading;
+
 namespace monopoly
 {
-    class Depart : Case
+    public class Depart : Case
     {
         public Depart() {
             nom = "Depart";
@@ -8,7 +11,9 @@ namespace monopoly
 
         public override void PasserSur(Joueur j)
         {
-            throw new System.NotImplementedException();
+            //TODO: +200 !!!
+            Console.WriteLine($"Passage sur : {nom}");
+            Thread.Sleep(1000);
         }
 
         public override void StopperSur(Joueur j)

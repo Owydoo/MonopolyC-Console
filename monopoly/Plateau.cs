@@ -4,7 +4,7 @@ using monopoly.monopoly.cases;
 
 namespace monopoly
 {
-    class Plateau
+    public class Plateau
     {
         private List<Case> cases;
         private Dictionary<Couleur, List<Terrain>> groupesTerrains;
@@ -72,7 +72,7 @@ namespace monopoly
             AjouterCase(new Terrain("Rue de la Paix", 400, 2, Couleur.Bleu));
 
 
-            AfficherLePlateau();
+            //AfficherLePlateau();
         }
 
         private void AfficherLePlateau()

@@ -4,7 +4,7 @@ using System.Threading;
 
 namespace monopoly
 {
-    class Partie
+    public class Partie
     {
         private List<Joueur> joueurs;
         private Plateau plateau;

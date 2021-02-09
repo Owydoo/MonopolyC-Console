@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 
 namespace monopoly.monopoly.cases
 {
-    class Gare : Case
+    public class Gare : Case
     {
         public uint prix;
         private Joueur proprietaire;
@@ -17,7 +18,8 @@ namespace monopoly.monopoly.cases
         }
         public override void PasserSur(Joueur j)
         {
-            throw new System.NotImplementedException();
+            Console.WriteLine($"Passage sur : {nom}");
+            Thread.Sleep(1000);
         }
         public override void StopperSur(Joueur j)
         {

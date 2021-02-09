@@ -1,9 +1,11 @@
 namespace monopoly
 {
-    abstract class Case
+    public abstract class Case
     {
         protected string nom;
         private Case suivante;
+
+        //TODO: reférence plateau
         public abstract void PasserSur(Joueur j);
         public abstract void StopperSur(Joueur j);
 
@@ -20,6 +22,7 @@ namespace monopoly
         {
             return $"Case : {nom}\n";
         }
+
     }
 
 

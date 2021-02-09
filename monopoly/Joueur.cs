@@ -17,10 +17,10 @@ namespace monopoly
     //}
 
 
-    class Joueur
+    public class Joueur
     {
         private int argent;
-        private string nom;
+        public string nom;
         private Plateau plateau;
         private Case position;
 
@@ -49,9 +49,22 @@ namespace monopoly
             do
             {
                 lancer = LancerDes();
-                Avancer(lancer.First);
+                //Avancer(lancer.First);
+                //TODO: CHANGERRRR
+                Avancer(3);
 
             } while (lancer.Second);
+        }
+
+        /// <summary>
+        /// Vérifie si le joueur a plus ou moins d'argent que prix
+        /// true si le joueur a suffisamment d'argent.
+        /// </summary>
+        /// <param name="prixDepart"></param>
+        /// <returns></returns>
+        internal bool VerifAchatPossible(uint _prix)
+        {
+            return argent >= _prix;
         }
 
         private void Avancer(int n)
@@ -64,6 +77,7 @@ namespace monopoly
             }
             position = current;
             position.StopperSur(this);
+
         }
     }
 }
