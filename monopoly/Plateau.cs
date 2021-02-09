@@ -75,6 +75,25 @@ namespace monopoly
             //AfficherLePlateau();
         }
 
+        /// <summary>
+        /// Vérifie les autres terrains de couleur pour voir s'il sont tous possédé par j
+        /// </summary>
+        /// <param name="_couleur"></param>
+        /// <param name="_j"></param>
+        /// <param name="_terrainActuel"></param>
+        internal bool VerifAutreTerrainPossedeGroupe(Couleur _couleur, Joueur _j, Terrain _terrainActuel)
+        {
+            bool result = true;
+            foreach (var _terrain in groupesTerrains[_couleur])
+            {
+                if (_terrain.proprietaire != _j && _terrain != _terrainActuel)
+                {
+                    result = false;
+                }
+            }
+            return result;
+        }
+
         private void AfficherLePlateau()
         {
             Case _first = cases[0];

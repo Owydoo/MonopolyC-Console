@@ -19,6 +19,9 @@ namespace monopoly
             this.loyer = loyer;
             this.couleur = couleur;
             this.etat = new EtatAchetable();
+            
+            
+            this.plateau = new Plateau(); // ?
         }
 
 
@@ -66,7 +69,13 @@ namespace monopoly
         internal void EnregistreAcheteur(Joueur j)
         {
             proprietaire = j;
-            //TODO: verif autre Terrain Possédé Groupe
+
+            Console.WriteLine(plateau.VerifAutreTerrainPossedeGroupe(couleur, j, this));
+            if(plateau.VerifAutreTerrainPossedeGroupe(couleur, j, this))
+            {
+                //etat du terrain = constructible
+            }
+
         }
 
         public override string ToString()

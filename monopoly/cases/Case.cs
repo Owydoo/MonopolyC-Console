@@ -6,6 +6,8 @@ namespace monopoly
         private Case suivante;
 
         //TODO: reférence plateau
+        public Plateau plateau;
+
         public abstract void PasserSur(Joueur j);
         public abstract void StopperSur(Joueur j);
 
