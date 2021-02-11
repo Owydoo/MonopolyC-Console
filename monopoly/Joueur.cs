@@ -143,8 +143,29 @@ namespace monopoly
             position.StopperSur(this);
 
             //Affiches Cases constructibles s'il y en a
-            plateau.AfficheCasesConstructibles(this);
+            Terrain terrainChoisi = plateau.AfficheCasesConstructiblesEtChoixTerrain(this);
+            if (terrainChoisi != null)
+            {
+                int nbMaisonsAConstruire = ChoisirNbMaisons(terrainChoisi);
+                if (!(nbMaisonsAConstruire <= 0))
+                {
+                    terrainChoisi.EnregistrerMaisons(nbMaisonsAConstruire);
+                }
+            }
 
+        }
+
+        /// <summary>
+        /// Demande au joueur combien de maisons veut-il construire sur terrainChoisi et
+        /// renvoie le résultat.
+        /// </summary>
+        /// <param name="terrainChoisi"></param>
+        /// <returns></returns>
+        private int ChoisirNbMaisons(Terrain terrainChoisi)
+        {
+            Console.WriteLine($"Combien de maisons voulez-vous construire sur {terrainChoisi.nom} ?");
+            int nbMaisons = Convert.ToInt32(Console.ReadLine());
+            return nbMaisons;
         }
     }
 }

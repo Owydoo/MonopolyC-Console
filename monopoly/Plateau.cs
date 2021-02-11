@@ -30,53 +30,53 @@ namespace monopoly
             //TODO: Creer toutes les cases
             AjouterCase(new Depart());
             //============
-            AjouterCase(new Terrain("Boulevard de Belleville", 60, 2 ,Couleur.Marron, this));
+            AjouterCase(new Terrain("Boulevard de Belleville", 60, 2 ,Couleur.Marron, this, 50));
             //==================
             
             
             //Console.WriteLine("nb groupes terrains Marron : " + groupesTerrains[Couleur.Marron].Count);
             AjouterCase(new Vide("Casse de Communauté"));
-            AjouterCase(new Terrain("Rue Lecourbe", 60, 2, Couleur.Marron, this));
+            AjouterCase(new Terrain("Rue Lecourbe", 60, 2, Couleur.Marron, this, 50));
 
             
 
             AjouterCase(new Impots("Impôts sur le revenu", 200));
             AjouterCase(new Gare("Gare Montparnasse", this));
-            AjouterCase(new Terrain("Rue de Vaugirard", 100, 2, Couleur.Cyan, this));
+            AjouterCase(new Terrain("Rue de Vaugirard", 100, 2, Couleur.Cyan, this, 50));
             AjouterCase(new Vide("Chance"));
-            AjouterCase(new Terrain("Rue de Courcelles", 100, 2, Couleur.Cyan, this));
-            AjouterCase(new Terrain("Avenue de la république", 120, 2, Couleur.Cyan, this));
+            AjouterCase(new Terrain("Rue de Courcelles", 100, 2, Couleur.Cyan, this, 50));
+            AjouterCase(new Terrain("Avenue de la république", 120, 2, Couleur.Cyan, this, 50));
             AjouterCase(new Vide("Simple visite"));
-            AjouterCase(new Terrain("Boulevard de la villette", 140, 2, Couleur.Rose, this));
+            AjouterCase(new Terrain("Boulevard de la villette", 140, 2, Couleur.Rose, this, 100));
             AjouterCase(new Compagnie("Compagnie de distribution d'électricité", this));
-            AjouterCase(new Terrain("Avenue de Neuilly", 140, 2, Couleur.Rose, this));
-            AjouterCase(new Terrain("Rue de Paradis", 160, 2, Couleur.Rose, this));
+            AjouterCase(new Terrain("Avenue de Neuilly", 140, 2, Couleur.Rose, this, 100));
+            AjouterCase(new Terrain("Rue de Paradis", 160, 2, Couleur.Rose, this, 100));
             AjouterCase(new Gare("Gare de Lyon", this));
-            AjouterCase(new Terrain("Avenue Mozart", 180, 2, Couleur.Orange, this));
+            AjouterCase(new Terrain("Avenue Mozart", 180, 2, Couleur.Orange, this, 100));
             AjouterCase(new Vide("Caisse de communauté"));
-            AjouterCase(new Terrain("Boulevard Saint-Michel", 180, 2, Couleur.Orange, this));
-            AjouterCase(new Terrain("Place Pigalle", 200, 2, Couleur.Orange, this));
+            AjouterCase(new Terrain("Boulevard Saint-Michel", 180, 2, Couleur.Orange, this, 100));
+            AjouterCase(new Terrain("Place Pigalle", 200, 2, Couleur.Orange, this, 100));
             AjouterCase(new Vide("Parc Gratuit"));
-            AjouterCase(new Terrain("Avenue Matignon", 220, 2, Couleur.Rouge, this));
+            AjouterCase(new Terrain("Avenue Matignon", 220, 2, Couleur.Rouge, this, 150));
             AjouterCase(new Vide("Chance"));
-            AjouterCase(new Terrain("Boulevard Malesherbes", 220, 2, Couleur.Rouge, this));
-            AjouterCase(new Terrain("Avenue Henri-Martin", 240, 2, Couleur.Rouge, this));
+            AjouterCase(new Terrain("Boulevard Malesherbes", 220, 2, Couleur.Rouge, this, 150));
+            AjouterCase(new Terrain("Avenue Henri-Martin", 240, 2, Couleur.Rouge, this, 150));
             AjouterCase(new Gare("Gare du Nord", this));
-            AjouterCase(new Terrain("Faubourg Saint-Honoré", 260, 2, Couleur.Jaune, this));
-            AjouterCase(new Terrain("Place de la bourse", 260, 2, Couleur.Jaune, this));
+            AjouterCase(new Terrain("Faubourg Saint-Honoré", 260, 2, Couleur.Jaune, this, 150));
+            AjouterCase(new Terrain("Place de la bourse", 260, 2, Couleur.Jaune, this, 150));
             AjouterCase(new Compagnie("Compagnie de distribution des eaux", this));
-            AjouterCase(new Terrain("Rue de la Fayette", 280, 2, Couleur.Jaune, this));
+            AjouterCase(new Terrain("Rue de la Fayette", 280, 2, Couleur.Jaune, this, 150));
             AjouterCase(new Vide("Allez en prison"));
 
-            AjouterCase(new Terrain("Avenue de Breteuil", 300, 2, Couleur.Vert, this));
-            AjouterCase(new Terrain("Avenue de Foch", 300, 2, Couleur.Vert, this));
+            AjouterCase(new Terrain("Avenue de Breteuil", 300, 2, Couleur.Vert, this, 200));
+            AjouterCase(new Terrain("Avenue de Foch", 300, 2, Couleur.Vert, this, 200));
             AjouterCase(new Vide("Allez en prison"));
-            AjouterCase(new Terrain("Boulevard des Capucines", 320, 2, Couleur.Vert, this));
+            AjouterCase(new Terrain("Boulevard des Capucines", 320, 2, Couleur.Vert, this, 200));
             AjouterCase(new Gare("Gare Saint-Lazare", this));
             AjouterCase(new Vide("Chance"));
-            AjouterCase(new Terrain("Avenue des Champs-Élysées", 350, 2, Couleur.Bleu, this));
+            AjouterCase(new Terrain("Avenue des Champs-Élysées", 350, 2, Couleur.Bleu, this, 200));
             AjouterCase(new Impots("Taxe de Luxe", 100));
-            AjouterCase(new Terrain("Rue de la Paix", 400, 2, Couleur.Bleu, this));
+            AjouterCase(new Terrain("Rue de la Paix", 400, 2, Couleur.Bleu, this, 200));
 
 
             //AfficherLePlateau();
@@ -85,27 +85,43 @@ namespace monopoly
         /// <summary>
         /// Affiche au joueur les cases et les couleurs des cases sur lesquelles il peut construire.
         /// </summary>
-        internal void AfficheCasesConstructibles(Joueur j)
+        internal Terrain AfficheCasesConstructiblesEtChoixTerrain(Joueur j)
         {
-            List<Couleur> _couleurConstructibles = GetCouleurConstructible(j);
-            if (_couleurConstructibles.Count == 0)
+            List<Couleur> _couleursConstructibles = GetCouleursConstructible(j);
+            if (_couleursConstructibles.Count == 0)
             {
                 Console.WriteLine("Vous ne pouvez pas construire de maisons pour le moment.");
+                return null;
             }
             else
             {
-                List<Terrain> _terrainsConstructibles = GetTerrainsConstructible(j, _couleurConstructibles);
-                foreach (var _couleur in _couleurConstructibles)
+                int indiceTerrain = 0; //Un indice sur chaque terrain qui permettra au joueur de choisir où construire
+
+                List<Terrain> _terrainsConstructibles = GetTerrainsConstructible(j, _couleursConstructibles);
+                foreach (var _couleur in _couleursConstructibles)
                 {
                     Console.WriteLine($"Dans le groupe {_couleur} : ");
                     foreach (var _terrain in _terrainsConstructibles)
                     {
-                        Console.WriteLine($"{_terrain.nom} qui a déjà X maisons");
+                        indiceTerrain++;
+                        Console.WriteLine($"{indiceTerrain} : {_terrain.nom} qui a déjà {_terrain.maisonsConstruites} maisons.");
                     }
                     Console.WriteLine("---");
                 }
-            }
 
+                Console.WriteLine("Indiquez le numéro du terrain sur lequel vous voulez construire, et 0 si vous ne voulez pas construire.");
+                //TODO : gestion d'erreur si le choix donné n'est pas un entier.
+                int choixTerrain = Convert.ToInt32(Console.ReadLine().ToLower());
+                if (!(choixTerrain <= 0 && choixTerrain > _terrainsConstructibles.Count))
+                {
+                    return _terrainsConstructibles[choixTerrain - 1];
+                }
+                else
+                {
+                    Console.WriteLine("Veuillez indiquer un nombre correspondant aux indices donnés plus haut.");
+                    return null;
+                }
+            }
         }
 
         /// <summary>
@@ -142,7 +158,7 @@ namespace monopoly
         /// Renvoie une liste de couleur contenant les couleurs dans lesquelles j peut construire des maisons.
         /// </summary>
         /// <param name="j"></param>
-        private List<Couleur> GetCouleurConstructible(Joueur j)
+        private List<Couleur> GetCouleursConstructible(Joueur j)
         {
             List<Couleur> _couleurConstructibles = new List<Couleur>();
             foreach (KeyValuePair<Couleur, List<Terrain>> _colorAndTerrain in groupesTerrains)

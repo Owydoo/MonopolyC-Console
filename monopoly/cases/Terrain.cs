@@ -7,12 +7,14 @@ namespace monopoly
     {
         public uint prixDepart;
         private uint loyer;
+        public uint prixMaison;
         private Couleur couleur;
         public Joueur proprietaire;
+        public uint maisonsConstruites;
 
         public EtatTerrain etat;
 
-        public Terrain(string nom, uint prixDepart, uint loyer, Couleur couleur, Plateau plateau)
+        public Terrain(string nom, uint prixDepart, uint loyer, Couleur couleur, Plateau plateau, uint prixMaison)
         {
             this.nom = nom;
             this.prixDepart = prixDepart;
@@ -24,7 +26,7 @@ namespace monopoly
 
             //this.proprietaire = new Joueur();
             //=============================
-
+            maisonsConstruites = 0;
             this.plateau = plateau;
         }
 
@@ -110,8 +112,50 @@ namespace monopoly
                 $"loyer de départ : {loyer}\n" +
                 $"couleur : {couleur}\n" +
                 $"propriétaire : {_propri}\n" +
-                $"état du terrain : {etat.ToString()}\n";
+                $"état du terrain : {etat.ToString()}\n" +
+                $"nombres de maisons construites : {maisonsConstruites}";
             return result;
+        }
+
+        /// <summary>
+        /// Enregistrer les maisons à construire sur this.
+        /// </summary>
+        /// <param name="nbMaisonsAConstruire"></param>
+        internal void EnregistrerMaisons(int nbMaisonsAConstruire)
+        {
+            uint prixAPayer = (uint)nbMaisonsAConstruire * prixMaison;
+
+            if (this.VerifNbMaisons(nbMaisonsAConstruire))
+            {
+                if(proprietaire.VerifAchatPossible(prixAPayer))
+                {
+                    proprietaire.DebiteCompte(prixAPayer);
+                    maisonsConstruites += (uint)nbMaisonsAConstruire;
+                    Console.WriteLine($"Vous avez dorénavant {maisonsConstruites} maisons sur le terrain '{nom}'");
+                }
+                else
+                {
+                    Console.WriteLine("Vous n'avez pas assez d'argent pour acheter autant de maison.");
+                }
+            }
+            else
+            {
+                Console.WriteLine($"Cela ferait trop de maisons pour le terrain {nom}");
+            }
+            
+            
+        }
+
+        /// <summary>
+        /// Vérifie que le nombre de maisons est inférieur à 5 même en y ajoutant
+        /// le nombre de maisons que le joueur veut construire.
+        /// return true si le nombre convient
+        /// </summary>
+        /// <param name="nbMaisonsAConstruire"></param>
+        /// <returns></returns>
+        private bool VerifNbMaisons(int nbMaisonsAConstruire)
+        {
+            return ((nbMaisonsAConstruire + maisonsConstruites >= 0) && (nbMaisonsAConstruire + maisonsConstruites <= 5));
         }
     }
 }
