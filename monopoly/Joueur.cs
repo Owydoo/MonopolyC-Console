@@ -36,7 +36,9 @@ namespace monopoly
         public bool JouerTour()
         {
             //Lancer les dés
+            Console.BackgroundColor = ConsoleColor.Red;
             Console.WriteLine($"------------------- {nom} joue son tour -------------------");
+            Console.ResetColor();
             Console.WriteLine($"{nom} a {argent}M$ sur son compte.\n");
             Lancer lancer;
 

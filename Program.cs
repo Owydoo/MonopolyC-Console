@@ -6,7 +6,9 @@ namespace monopoly
     {
         static void Main(string[] args)
         {
+            Console.BackgroundColor = ConsoleColor.Blue;
             Console.WriteLine("Bienvenue dans le Monopoly !");
+            Console.ResetColor();
 
             var arr = new[]
             {
@@ -31,11 +33,12 @@ namespace monopoly
                 @"░░░░░░░░░░░░░░░░██░░░░░░░░░░░░░░░░░░░░░",
             };
 
+            Console.BackgroundColor = ConsoleColor.DarkBlue;
             foreach (string line in arr)
             {
-
                 Console.WriteLine(line);
             }
+            Console.ResetColor();
             //TODO: Inscription des différents joueurs
             //récup leur noms
 
