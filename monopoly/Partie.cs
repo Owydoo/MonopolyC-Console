@@ -6,7 +6,8 @@ namespace monopoly
 {
     public class Partie
     {
-        private List<Joueur> joueurs;
+        //private List<Joueur> joueurs;
+        public static List<Joueur> joueurs;
         private Plateau plateau;
 
         public Partie(uint nb_joueurs)
@@ -17,6 +18,8 @@ namespace monopoly
             {
                 joueurs.Add(new Joueur("Joueur " + (i + 1), 500, this.plateau));
             }
+
+            //((Terrain) plateau.cases[1]).EnregistreAcheteur(joueurs[0]); //TEST
         }
 
         public void LancerPartie()
@@ -36,6 +39,8 @@ namespace monopoly
             }
             
         }
+
+
 
     }
 }

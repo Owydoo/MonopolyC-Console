@@ -43,14 +43,92 @@ namespace monopoly
                 j.DebiteCompte(terrain.prixDepart);
                 Console.WriteLine($"Il vous reste {j.argent} sur votre compte.");
 
-            } else {
+            }
+            else
+            {
                 Console.WriteLine("Lol le nullos !! C'est pas tres startup nation ca...");
             }
         }
         public override string ToString()
         {
-            return "ACHETABLE : PAY WITH STONKS";
+            return "ACHETABLE";
         }
 
     }
+
+    public class EtatAchete : EtatTerrain
+    {
+        public EtatAchete() { }
+        public override void PayerLoyer(Joueur j, Terrain terrain)
+        {
+
+        }
+        public override void Construire(Joueur j, Terrain terrain)
+        {
+
+        }
+        public override void AcheterTerrain(Joueur j, Terrain terrain)
+        {
+
+        }
+        public override void StopperSur(Joueur j, Terrain terrain)
+        {
+            if (j != terrain.proprietaire)
+            {
+                Console.WriteLine($"Vous êtes tombés sur {terrain.nom} qui appartient à {terrain.proprietaire.nom}");
+
+                int loyer = terrain.CalculerLoyer();
+
+                //PayerLoyer(luc, montant)
+                j.PayerLoyer(terrain.proprietaire, loyer);
+            }
+            else
+            {
+                Console.WriteLine($"Vous êtes tombés sur {terrain.nom} qui est votre propriété.");
+            }
+        }
+        public override string ToString()
+        {
+            return "ACHETE";
+        }
+
+    }
+
+    public class EtatConstructible : EtatTerrain
+    {
+        public EtatConstructible() { }
+        public override void PayerLoyer(Joueur j, Terrain terrain)
+        {
+
+        }
+        public override void Construire(Joueur j, Terrain terrain)
+        {
+
+        }
+        public override void AcheterTerrain(Joueur j, Terrain terrain)
+        {
+
+        }
+        public override void StopperSur(Joueur j, Terrain terrain)
+        {
+            if (j != terrain.proprietaire)
+            {
+                Console.WriteLine($"Vous êtes tombés sur {terrain.nom} qui appartient à {terrain.proprietaire.nom}");
+
+                int loyer = terrain.CalculerLoyer();
+
+                //PayerLoyer(luc, montant)
+                j.PayerLoyer(terrain.proprietaire, loyer);
+            }
+            else
+            {
+                Console.WriteLine($"Vous êtes tombés sur {terrain.nom} qui est votre propriété.");
+            }
+        }
+        public override string ToString()
+        {
+            return "CONSTRUCTIBLE";
+        }
+    }
+
 }

@@ -6,7 +6,7 @@ namespace monopoly
 {
     public class Plateau
     {
-        private List<Case> cases;
+        public List<Case> cases;
         private Dictionary<Couleur, List<Terrain>> groupesTerrains;
         private List<Gare> gares;
         private List<Compagnie> compagnies;
@@ -29,10 +29,17 @@ namespace monopoly
 
             //TODO: Creer toutes les cases
             AjouterCase(new Depart());
+            //============
             AjouterCase(new Terrain("Boulevard de Belleville", 60, 2 ,Couleur.Marron, this));
-            Console.WriteLine("nb groupes terrains Marron : " + groupesTerrains[Couleur.Marron].Count);
+            //==================
+            
+            
+            //Console.WriteLine("nb groupes terrains Marron : " + groupesTerrains[Couleur.Marron].Count);
             AjouterCase(new Vide("Casse de Communauté"));
             AjouterCase(new Terrain("Rue Lecourbe", 60, 2, Couleur.Marron, this));
+
+            
+
             AjouterCase(new Impots("Impôts sur le revenu", 200));
             AjouterCase(new Gare("Gare Montparnasse"));
             AjouterCase(new Terrain("Rue de Vaugirard", 100, 2, Couleur.Cyan, this));
@@ -74,6 +81,46 @@ namespace monopoly
 
             //AfficherLePlateau();
         }
+
+
+        /// <summary>
+        /// Vérifie que tous les terrains de la même couleur ont le même propriétaire.
+        /// Passe les terrains à l'état constructible si c'est le cas.
+        /// </summary>
+        /// <param name="couleur"></param>
+        public void SwitchConstructible(Couleur couleur)
+        {
+            bool toSwitch = true;
+            Joueur proprio = null;
+
+            //Verifie que les terrains sont achetes par le meme proprio
+            foreach (var _terrain in groupesTerrains[couleur])
+            {
+                if (!typeof(EtatAchete).IsInstanceOfType(_terrain.etat))
+                {
+                    toSwitch = false;
+                } else {
+                    if (proprio == null) {
+                        proprio = _terrain.proprietaire;
+                    }
+                    else
+                    {
+                        if (proprio != _terrain.proprietaire) {
+                            toSwitch = false;
+                        }
+                        proprio = _terrain.proprietaire;
+                    }
+                }
+            }
+            if (toSwitch)
+            {
+                foreach (var _terrain in groupesTerrains[couleur])
+                {
+                    _terrain.etat = new EtatConstructible();
+                    Console.WriteLine("SWITCHAROOOOOO");
+                }
+            }
+        }   
 
         /// <summary>
         /// Vérifie les autres terrains de couleur pour voir s'il sont tous possédé par j

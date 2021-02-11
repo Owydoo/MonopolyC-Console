@@ -2,7 +2,7 @@ namespace monopoly
 {
     public abstract class Case
     {
-        protected string nom;
+        public string nom;
         private Case suivante;
 
         //TODO: reférence plateau

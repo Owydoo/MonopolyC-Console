@@ -10,7 +10,7 @@ namespace monopoly
         private Couleur couleur;
         public Joueur proprietaire;
 
-        private EtatTerrain etat;
+        public EtatTerrain etat;
 
         public Terrain(string nom, uint prixDepart, uint loyer, Couleur couleur, Plateau plateau)
         {
@@ -23,6 +23,7 @@ namespace monopoly
 
             this.plateau = plateau;
         }
+
 
 
         public override void PasserSur(Joueur j)
@@ -60,21 +61,31 @@ namespace monopoly
             return proprietaire == j;
         }
 
+        public int CalculerLoyer()
+        {
+            int nb = (int)loyer;
+
+            //loyer doublé si le joueur possède tous les terrains de la couleur
+            if(plateau.VerifAutreTerrainPossedeGroupe(couleur, proprietaire, this)) {
+                nb *= 2;
+            }
+            return nb;
+        }
+
         /// <summary>
         /// Enregistre d'abord le joueur en tant que propriétaire.
         /// Si l'acheteur possède les autres terrains du groupe, alors
         /// l'état du terrain passe à constructible.
         /// </summary>
         /// <param name="j"></param>
-        internal void EnregistreAcheteur(Joueur j)
+        public void EnregistreAcheteur(Joueur j)
         {
             proprietaire = j;
 
             Console.WriteLine(plateau.VerifAutreTerrainPossedeGroupe(couleur, j, this));
-            if(plateau.VerifAutreTerrainPossedeGroupe(couleur, j, this))
-            {
-                //etat du terrain = constructible
-            }
+            this.etat = new EtatAchete();
+            
+            plateau.SwitchConstructible(couleur);
 
         }
 

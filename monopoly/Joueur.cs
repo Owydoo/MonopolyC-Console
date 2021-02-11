@@ -40,21 +40,24 @@ namespace monopoly
             return new Lancer(dice1 + dice2, dice1 == dice2);
         }
 
-        public void JouerTour()
+        public bool JouerTour()
         {
             //Lancer les dés
-            Console.WriteLine($"{nom} joue son tour.");
+            Console.WriteLine($"------------------- {nom} joue son tour -------------------");
             Console.WriteLine($"{nom} a {argent}M$ sur son compte.\n");
             Lancer lancer;
 
             do
             {
                 lancer = LancerDes();
-                //Avancer(lancer.First);
-                //TODO: CHANGERRRR
-                Avancer(3);
+                Avancer(lancer.First);
+                if (lancer.Second) {
+                    Console.WriteLine("Vous avez fait un double, vous rejouez !");
+                }
 
             } while (lancer.Second);
+
+            return VerifDefaite();
         }
 
         /// <summary>
@@ -75,6 +78,40 @@ namespace monopoly
         internal bool VerifAchatPossible(uint _prix)
         {
             return argent >= _prix;
+        }
+
+        /// <summary>
+        /// Débite le compte du joueur du prix du loyer et le crédite au proprio
+        /// Ne débite que ce qui lui reste s'il n'a pas assez de sous.
+        /// </summary>
+        /// <param name="j"></param>
+        /// <param name="montant"></param>
+        public void PayerLoyer(Joueur j, int montant)
+        {
+            int argentPaye = (argent < montant) ? argent : montant;
+            argent -= montant;
+
+            j.CrediteCompte(argentPaye);
+            
+        }
+        
+        /// <summary>
+        /// Si le joueur a moins que rien d'argent, alors il a perdu.
+        /// </summary>
+        /// <returns></returns>
+        private bool VerifDefaite()
+        {
+            return (argent < 0);
+        }
+
+        /// <summary>
+        /// Crédite le joueur de montant
+        /// </summary>
+        /// <param name="montant"></param>
+        private void CrediteCompte(int montant)
+        {
+            argent += montant;
+            Console.WriteLine($"{nom} reçoit {montant} et possède donc {argent}M$");
         }
 
         private void Avancer(int n)
