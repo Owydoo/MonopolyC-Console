@@ -19,7 +19,11 @@ namespace monopoly
             this.loyer = loyer;
             this.couleur = couleur;
             this.etat = new EtatAchetable();
+            //=========================== TEST
+            //this.etat = new EtatConstructible();
 
+            //this.proprietaire = new Joueur();
+            //=============================
 
             this.plateau = plateau;
         }

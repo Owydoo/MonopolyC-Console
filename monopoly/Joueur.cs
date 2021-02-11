@@ -43,8 +43,30 @@ namespace monopoly
             do
             {
                 lancer = DiceLauncher.LancerDes();
-                //Avancer(lancer.First);
-                Avancer(5);
+
+                //Avancer(lancer.First); //truc avant test
+
+                //==================== TEST
+                //Choisir de combien faire avancer le dé
+                Console.WriteLine("Choisir la valeur du dé :");
+                int nbDice = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Est-ce un double ? [Y/N]");
+                string choice = Console.ReadLine().ToLower();
+
+                //lancer.Second = choice == "y" ? true , false;
+                if (choice == "y")
+                {
+                    lancer.Second = true;
+                }
+                else
+                {
+                    lancer.Second = false; 
+                }
+                Avancer(nbDice);
+
+                //==================== fin test
+
+
                 if (lancer.Second) {
                     Console.WriteLine("Vous avez fait un double, vous rejouez !");
                 }
@@ -119,6 +141,9 @@ namespace monopoly
             }
             position = current;
             position.StopperSur(this);
+
+            //Affiches Cases constructibles s'il y en a
+            plateau.AfficheCasesConstructibles(this);
 
         }
     }
