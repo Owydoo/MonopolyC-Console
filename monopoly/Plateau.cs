@@ -41,7 +41,7 @@ namespace monopoly
             
 
             AjouterCase(new Impots("Impôts sur le revenu", 200));
-            AjouterCase(new Gare("Gare Montparnasse"));
+            AjouterCase(new Gare("Gare Montparnasse", this));
             AjouterCase(new Terrain("Rue de Vaugirard", 100, 2, Couleur.Cyan, this));
             AjouterCase(new Vide("Chance"));
             AjouterCase(new Terrain("Rue de Courcelles", 100, 2, Couleur.Cyan, this));
@@ -51,7 +51,7 @@ namespace monopoly
             AjouterCase(new Compagnie("Compagnie de distribution d'électricité", this));
             AjouterCase(new Terrain("Avenue de Neuilly", 140, 2, Couleur.Rose, this));
             AjouterCase(new Terrain("Rue de Paradis", 160, 2, Couleur.Rose, this));
-            AjouterCase(new Gare("Gare de Lyon"));
+            AjouterCase(new Gare("Gare de Lyon", this));
             AjouterCase(new Terrain("Avenue Mozart", 180, 2, Couleur.Orange, this));
             AjouterCase(new Vide("Caisse de communauté"));
             AjouterCase(new Terrain("Boulevard Saint-Michel", 180, 2, Couleur.Orange, this));
@@ -61,7 +61,7 @@ namespace monopoly
             AjouterCase(new Vide("Chance"));
             AjouterCase(new Terrain("Boulevard Malesherbes", 220, 2, Couleur.Rouge, this));
             AjouterCase(new Terrain("Avenue Henri-Martin", 240, 2, Couleur.Rouge, this));
-            AjouterCase(new Gare("Gare du Nord"));
+            AjouterCase(new Gare("Gare du Nord", this));
             AjouterCase(new Terrain("Faubourg Saint-Honoré", 260, 2, Couleur.Jaune, this));
             AjouterCase(new Terrain("Place de la bourse", 260, 2, Couleur.Jaune, this));
             AjouterCase(new Compagnie("Compagnie de distribution des eaux", this));
@@ -72,7 +72,7 @@ namespace monopoly
             AjouterCase(new Terrain("Avenue de Foch", 300, 2, Couleur.Vert, this));
             AjouterCase(new Vide("Allez en prison"));
             AjouterCase(new Terrain("Boulevard des Capucines", 320, 2, Couleur.Vert, this));
-            AjouterCase(new Gare("Gare Saint-Lazare"));
+            AjouterCase(new Gare("Gare Saint-Lazare", this));
             AjouterCase(new Vide("Chance"));
             AjouterCase(new Terrain("Avenue des Champs-Élysées", 350, 2, Couleur.Bleu, this));
             AjouterCase(new Impots("Taxe de Luxe", 100));
@@ -229,9 +229,9 @@ namespace monopoly
         public int NombreGaresPourJoueur(Joueur j)
         {
             int nb = 0;
-            foreach(Gare g in gares)
+            foreach(Gare _gare in gares)
             {
-                if (g.PossedeePar(j))
+                if (_gare.PossedeePar(j))
                 {
                     ++nb;
                 }

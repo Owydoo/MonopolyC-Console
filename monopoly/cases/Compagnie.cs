@@ -73,6 +73,10 @@ namespace monopoly
 
         }
 
+        /// <summary>
+        /// Enregistrer l'acheteur dans les variables de la Case
+        /// </summary>
+        /// <param name="j"></param>
         private void EnregistrerAcheteur(Joueur j)
         {
             proprietaire = j;

@@ -44,7 +44,7 @@ namespace monopoly
             {
                 lancer = DiceLauncher.LancerDes();
                 //Avancer(lancer.First);
-                Avancer(12);
+                Avancer(5);
                 if (lancer.Second) {
                     Console.WriteLine("Vous avez fait un double, vous rejouez !");
                 }
@@ -86,6 +86,7 @@ namespace monopoly
             argent -= montant;
 
             j.CrediteCompte(argentPaye);
+
             
         }
         
