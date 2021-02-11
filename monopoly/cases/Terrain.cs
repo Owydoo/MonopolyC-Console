@@ -12,16 +12,16 @@ namespace monopoly
 
         private EtatTerrain etat;
 
-        public Terrain(string nom, uint prixDepart, uint loyer, Couleur couleur)
+        public Terrain(string nom, uint prixDepart, uint loyer, Couleur couleur, Plateau plateau)
         {
             this.nom = nom;
             this.prixDepart = prixDepart;
             this.loyer = loyer;
             this.couleur = couleur;
             this.etat = new EtatAchetable();
-            
-            
-            this.plateau = new Plateau(); // ?
+
+
+            this.plateau = plateau;
         }
 
 
