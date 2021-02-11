@@ -48,7 +48,7 @@ namespace monopoly
             AjouterCase(new Terrain("Avenue de la république", 120, 2, Couleur.Cyan, this));
             AjouterCase(new Vide("Simple visite"));
             AjouterCase(new Terrain("Boulevard de la villette", 140, 2, Couleur.Rose, this));
-            AjouterCase(new Compagnie("Compagnie de distribution d'électricité"));
+            AjouterCase(new Compagnie("Compagnie de distribution d'électricité", this));
             AjouterCase(new Terrain("Avenue de Neuilly", 140, 2, Couleur.Rose, this));
             AjouterCase(new Terrain("Rue de Paradis", 160, 2, Couleur.Rose, this));
             AjouterCase(new Gare("Gare de Lyon"));
@@ -64,7 +64,7 @@ namespace monopoly
             AjouterCase(new Gare("Gare du Nord"));
             AjouterCase(new Terrain("Faubourg Saint-Honoré", 260, 2, Couleur.Jaune, this));
             AjouterCase(new Terrain("Place de la bourse", 260, 2, Couleur.Jaune, this));
-            AjouterCase(new Compagnie("Compagnie de distribution des eaux"));
+            AjouterCase(new Compagnie("Compagnie de distribution des eaux", this));
             AjouterCase(new Terrain("Rue de la Fayette", 280, 2, Couleur.Jaune, this));
             AjouterCase(new Vide("Allez en prison"));
 
@@ -80,6 +80,21 @@ namespace monopoly
 
 
             //AfficherLePlateau();
+        }
+
+        //
+        internal bool VerifCompagniesPossedeesPar(Joueur joueur)
+        {
+            bool sontPossedeesParJoueur = true;
+
+            foreach (Compagnie _compagnie in compagnies)
+            {
+                if (_compagnie.proprietaire != joueur)
+                {
+                    sontPossedeesParJoueur = false;
+                }
+            }
+            return sontPossedeesParJoueur;
         }
 
 

@@ -39,9 +39,13 @@ namespace monopoly
                 if (achatPossible)
                 {
                     terrain.EnregistreAcheteur(j);
+                    j.DebiteCompte(terrain.prixDepart);
+                    Console.WriteLine($"Il vous reste {j.argent} sur votre compte.");
                 }
-                j.DebiteCompte(terrain.prixDepart);
-                Console.WriteLine($"Il vous reste {j.argent} sur votre compte.");
+                else
+                {
+                    Console.WriteLine("Vous ne pouvez pas acheter cette propriété.");
+                }
 
             }
             else

@@ -3,7 +3,6 @@ using System;
 
 namespace monopoly
 {
-    using Lancer = Pair<int, bool>;
     //class Lancer : Pair<int, bool>
     //{
     //    private uint resultat;
@@ -15,6 +14,7 @@ namespace monopoly
     //        estUnDouble = Pa;
     //    }
     //}
+    using Lancer = Pair<int, bool>;
 
 
     public class Joueur
@@ -32,13 +32,6 @@ namespace monopoly
 
             position = plateau.GetDepart();
         }
-        private Lancer LancerDes()
-        {
-            Random r = new Random();
-            int dice1 = r.Next(1, 7);
-            int dice2 = r.Next(1, 7);
-            return new Lancer(dice1 + dice2, dice1 == dice2);
-        }
 
         public bool JouerTour()
         {
@@ -49,8 +42,9 @@ namespace monopoly
 
             do
             {
-                lancer = LancerDes();
-                Avancer(lancer.First);
+                lancer = DiceLauncher.LancerDes();
+                //Avancer(lancer.First);
+                Avancer(12);
                 if (lancer.Second) {
                     Console.WriteLine("Vous avez fait un double, vous rejouez !");
                 }
