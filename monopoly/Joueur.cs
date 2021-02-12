@@ -143,17 +143,22 @@ namespace monopoly
             }
             position = current;
             position.StopperSur(this);
-
-            //Affiches Cases constructibles s'il y en a
-            Terrain terrainChoisi = plateau.AfficheCasesConstructiblesEtChoixTerrain(this);
-            if (terrainChoisi != null)
+            
+            Terrain terrainChoisi;
+            do
             {
-                int nbMaisonsAConstruire = ChoisirNbMaisons(terrainChoisi);
-                if (!(nbMaisonsAConstruire <= 0))
+                terrainChoisi = plateau.AfficheCasesConstructiblesEtChoixTerrain(this);
+                if (terrainChoisi != null)
                 {
-                    terrainChoisi.EnregistrerMaisons(nbMaisonsAConstruire);
+                    int nbMaisonsAConstruire = ChoisirNbMaisons(terrainChoisi);
+                    if (!(nbMaisonsAConstruire <= 0))
+                    {
+                        terrainChoisi.EnregistrerMaisons(nbMaisonsAConstruire);
+                    }
                 }
-            }
+
+            } while (terrainChoisi != null);
+            //Affiches Cases constructibles s'il y en a
 
         }
 

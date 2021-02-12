@@ -30,53 +30,53 @@ namespace monopoly
             //TODO: Creer toutes les cases
             AjouterCase(new Depart());
             //============
-            AjouterCase(new Terrain("Boulevard de Belleville", 60, 2 ,Couleur.Marron, this, 50));
+            AjouterCase(new Terrain("Boulevard de Belleville", 60, 4 ,Couleur.Marron, this, 50, new uint[] { 10, 30, 90, 160, 250 } ));
             //==================
             
             
             //Console.WriteLine("nb groupes terrains Marron : " + groupesTerrains[Couleur.Marron].Count);
             AjouterCase(new Vide("Casse de Communauté"));
-            AjouterCase(new Terrain("Rue Lecourbe", 60, 2, Couleur.Marron, this, 50));
+            AjouterCase(new Terrain("Rue Lecourbe", 60, 4, Couleur.Marron, this, 50, new uint[] { 20, 60, 180, 320, 450 }));
 
             
 
             AjouterCase(new Impots("Impôts sur le revenu", 200));
             AjouterCase(new Gare("Gare Montparnasse", this));
-            AjouterCase(new Terrain("Rue de Vaugirard", 100, 2, Couleur.Cyan, this, 50));
+            AjouterCase(new Terrain("Rue de Vaugirard", 100, 6, Couleur.Cyan, this, 50, new uint[] { 30, 90, 270, 400, 550 }));
             AjouterCase(new Vide("Chance"));
-            AjouterCase(new Terrain("Rue de Courcelles", 100, 2, Couleur.Cyan, this, 50));
-            AjouterCase(new Terrain("Avenue de la république", 120, 2, Couleur.Cyan, this, 50));
+            AjouterCase(new Terrain("Rue de Courcelles", 100, 6, Couleur.Cyan, this, 50, new uint[] { 30, 90, 270, 400, 550 }));
+            AjouterCase(new Terrain("Avenue de la république", 120, 8, Couleur.Cyan, this, 50, new uint[] { 40, 100, 300, 450, 600 }));
             AjouterCase(new Vide("Simple visite"));
-            AjouterCase(new Terrain("Boulevard de la villette", 140, 2, Couleur.Rose, this, 100));
+            AjouterCase(new Terrain("Boulevard de la villette", 140, 10, Couleur.Rose, this, 100, new uint[] { 50, 150, 450, 625, 750 }));
             AjouterCase(new Compagnie("Compagnie de distribution d'électricité", this));
-            AjouterCase(new Terrain("Avenue de Neuilly", 140, 2, Couleur.Rose, this, 100));
-            AjouterCase(new Terrain("Rue de Paradis", 160, 2, Couleur.Rose, this, 100));
+            AjouterCase(new Terrain("Avenue de Neuilly", 140, 10, Couleur.Rose, this, 100, new uint[] { 50, 150, 450, 625, 750 }));
+            AjouterCase(new Terrain("Rue de Paradis", 160, 12, Couleur.Rose, this, 100, new uint[] { 60, 180, 500, 700, 900 }));
             AjouterCase(new Gare("Gare de Lyon", this));
-            AjouterCase(new Terrain("Avenue Mozart", 180, 2, Couleur.Orange, this, 100));
+            AjouterCase(new Terrain("Avenue Mozart", 180, 14, Couleur.Orange, this, 100, new uint[] { 70, 200, 550, 750, 950 }));
             AjouterCase(new Vide("Caisse de communauté"));
-            AjouterCase(new Terrain("Boulevard Saint-Michel", 180, 2, Couleur.Orange, this, 100));
-            AjouterCase(new Terrain("Place Pigalle", 200, 2, Couleur.Orange, this, 100));
+            AjouterCase(new Terrain("Boulevard Saint-Michel", 180, 14, Couleur.Orange, this, 100, new uint[] { 70, 200, 550, 750, 950 }));
+            AjouterCase(new Terrain("Place Pigalle", 200, 16, Couleur.Orange, this, 100, new uint[] { 80, 220, 600, 800, 1000 }));
             AjouterCase(new Vide("Parc Gratuit"));
-            AjouterCase(new Terrain("Avenue Matignon", 220, 2, Couleur.Rouge, this, 150));
+            AjouterCase(new Terrain("Avenue Matignon", 220, 18, Couleur.Rouge, this, 150, new uint[] { 90, 250, 700, 875, 1050 }));
             AjouterCase(new Vide("Chance"));
-            AjouterCase(new Terrain("Boulevard Malesherbes", 220, 2, Couleur.Rouge, this, 150));
-            AjouterCase(new Terrain("Avenue Henri-Martin", 240, 2, Couleur.Rouge, this, 150));
+            AjouterCase(new Terrain("Boulevard Malesherbes", 220, 18, Couleur.Rouge, this, 150, new uint[] { 90, 250, 700, 875, 1050 }));
+            AjouterCase(new Terrain("Avenue Henri-Martin", 240, 20, Couleur.Rouge, this, 150, new uint[] { 100, 300, 750, 925, 1100 }));
             AjouterCase(new Gare("Gare du Nord", this));
-            AjouterCase(new Terrain("Faubourg Saint-Honoré", 260, 2, Couleur.Jaune, this, 150));
-            AjouterCase(new Terrain("Place de la bourse", 260, 2, Couleur.Jaune, this, 150));
+            AjouterCase(new Terrain("Faubourg Saint-Honoré", 260, 22, Couleur.Jaune, this, 150, new uint[] { 110, 330, 800, 975, 1150 }));
+            AjouterCase(new Terrain("Place de la bourse", 260, 22, Couleur.Jaune, this, 150, new uint[] { 110, 330, 800, 975, 1150 }));
             AjouterCase(new Compagnie("Compagnie de distribution des eaux", this));
-            AjouterCase(new Terrain("Rue de la Fayette", 280, 2, Couleur.Jaune, this, 150));
+            AjouterCase(new Terrain("Rue de la Fayette", 280, 22, Couleur.Jaune, this, 150, new uint[] { 120, 360, 850, 1025, 1200 }));
             AjouterCase(new Vide("Allez en prison"));
 
-            AjouterCase(new Terrain("Avenue de Breteuil", 300, 2, Couleur.Vert, this, 200));
-            AjouterCase(new Terrain("Avenue de Foch", 300, 2, Couleur.Vert, this, 200));
+            AjouterCase(new Terrain("Avenue de Breteuil", 300, 26, Couleur.Vert, this, 200, new uint[] { 130, 390, 900, 1100, 1275 }));
+            AjouterCase(new Terrain("Avenue de Foch", 300, 26, Couleur.Vert, this, 200, new uint[] { 130, 390, 900, 1100, 1275 }));
             AjouterCase(new Vide("Allez en prison"));
-            AjouterCase(new Terrain("Boulevard des Capucines", 320, 2, Couleur.Vert, this, 200));
+            AjouterCase(new Terrain("Boulevard des Capucines", 320, 28, Couleur.Vert, this, 200, new uint[] { 150, 450, 1000, 1200, 1400 }));
             AjouterCase(new Gare("Gare Saint-Lazare", this));
             AjouterCase(new Vide("Chance"));
-            AjouterCase(new Terrain("Avenue des Champs-Élysées", 350, 2, Couleur.Bleu, this, 200));
+            AjouterCase(new Terrain("Avenue des Champs-Élysées", 350, 35, Couleur.Bleu, this, 200, new uint[] { 175, 500, 1100, 1300, 1500 }));
             AjouterCase(new Impots("Taxe de Luxe", 100));
-            AjouterCase(new Terrain("Rue de la Paix", 400, 2, Couleur.Bleu, this, 200));
+            AjouterCase(new Terrain("Rue de la Paix", 400, 50, Couleur.Bleu, this, 200, new uint[] { 200, 600, 1400, 1700, 2000 }));
 
 
             //AfficherLePlateau();
@@ -84,11 +84,12 @@ namespace monopoly
 
         /// <summary>
         /// Affiche au joueur les cases et les couleurs des cases sur lesquelles il peut construire.
+        /// Renvoie le terrain qu'il a choisi.
         /// </summary>
         internal Terrain AfficheCasesConstructiblesEtChoixTerrain(Joueur j)
         {
             List<Couleur> _couleursConstructibles = GetCouleursConstructible(j);
-            if (_couleursConstructibles.Count == 0)
+            if (_couleursConstructibles.Count == 0) //Aucun terrain disponible à la construction
             {
                 Console.WriteLine("Vous ne pouvez pas construire de maisons pour le moment.");
                 return null;
@@ -112,7 +113,7 @@ namespace monopoly
                 Console.WriteLine("Indiquez le numéro du terrain sur lequel vous voulez construire, et 0 si vous ne voulez pas construire.");
                 //TODO : gestion d'erreur si le choix donné n'est pas un entier.
                 int choixTerrain = Convert.ToInt32(Console.ReadLine().ToLower());
-                if (!(choixTerrain <= 0 && choixTerrain > _terrainsConstructibles.Count))
+                if (!(choixTerrain <= 0 || choixTerrain > _terrainsConstructibles.Count))
                 {
                     return _terrainsConstructibles[choixTerrain - 1];
                 }

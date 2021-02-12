@@ -119,7 +119,17 @@ namespace monopoly
             {
                 Console.WriteLine($"Vous êtes tombés sur {terrain.nom} qui appartient à {terrain.proprietaire.nom}");
 
-                int loyer = terrain.CalculerLoyer();
+                int loyer = terrain.CalculerLoyerConstructible();
+
+                if (terrain.maisonsConstruites == 5)
+                {
+                    Console.WriteLine($"Ce terrain possède un hôtel, vous allez donc devoir payer un loyer de {loyer} M$ à {terrain.proprietaire.nom}");
+                }
+                else
+                {
+                    Console.WriteLine($"Ce terrain a {terrain.maisonsConstruites} maisons dessus, vous allez donc devoir payer un loyer de {loyer} M$ à {terrain.proprietaire.nom}");
+                }
+
 
                 //PayerLoyer(luc, montant)
                 j.PayerLoyer(terrain.proprietaire, loyer);

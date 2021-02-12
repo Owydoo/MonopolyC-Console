@@ -48,7 +48,7 @@ namespace monopoly.monopoly.cases
                 //VerifDefaite dans JouerTour() qui s'en occupe.
                 j.PayerLoyer(proprietaire, taxe);
 
-                Console.WriteLine($"{j.nom} a payé {taxe} et possède donc {j.argent}M$");
+                Console.WriteLine($"{j.nom} a payé {taxe} M$ et possède donc {j.argent} M$");
 
 
             }
@@ -85,7 +85,7 @@ namespace monopoly.monopoly.cases
             {
                 this.EnregistrerAcheteur(j);
                 j.DebiteCompte(prix);
-                Console.WriteLine($"Il vous reste {j.argent} sur votre compte.");
+                Console.WriteLine($"Il vous reste {j.argent} M$ sur votre compte.");
             }
             else
             {

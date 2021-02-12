@@ -12,14 +12,17 @@ namespace monopoly
         public Joueur proprietaire;
         public uint maisonsConstruites;
 
+        public uint[] loyerMaisons;
+
         public EtatTerrain etat;
 
-        public Terrain(string nom, uint prixDepart, uint loyer, Couleur couleur, Plateau plateau, uint prixMaison)
+        public Terrain(string _nom, uint _prixDepart, uint _loyer, Couleur _couleur, Plateau _plateau, 
+            uint _prixMaison, uint[] _loyerMaisons)
         {
-            this.nom = nom;
-            this.prixDepart = prixDepart;
-            this.loyer = loyer;
-            this.couleur = couleur;
+            this.nom = _nom;
+            this.prixDepart = _prixDepart;
+            this.loyer = _loyer;
+            this.couleur = _couleur;
             this.etat = new EtatAchetable();
             //=========================== TEST
             //this.etat = new EtatConstructible();
@@ -27,7 +30,10 @@ namespace monopoly
             //this.proprietaire = new Joueur();
             //=============================
             maisonsConstruites = 0;
-            this.plateau = plateau;
+            this.plateau = _plateau;
+            this.prixMaison = _prixMaison;
+
+            this.loyerMaisons = _loyerMaisons;
         }
 
 
@@ -76,6 +82,40 @@ namespace monopoly
                 nb *= 2;
             }
             return nb;
+        }
+
+        /// <summary>
+        /// Donne le loyer d'un terrain constructible en fonction du nombre de maisons dessus.
+        /// </summary>
+        /// <returns></returns>
+        internal int CalculerLoyerConstructible()
+        {
+            int _loyer = (int)loyer;
+
+            switch (maisonsConstruites)
+            {
+                case 0:
+                    _loyer *= 2;
+                    break;
+                case 1:
+                    _loyer = (int)loyerMaisons[0];
+                    break;
+                case 2:
+                    _loyer = (int)loyerMaisons[1];
+                    break;
+                case 3:
+                    _loyer = (int)loyerMaisons[2];
+                    break;
+                case 4:
+                    _loyer = (int)loyerMaisons[3];
+                    break;
+                case 5:
+                    _loyer = (int)loyerMaisons[4];
+                    break;
+                default:
+                    break;
+            }
+            return _loyer;
         }
 
         /// <summary>
@@ -145,6 +185,8 @@ namespace monopoly
             
             
         }
+
+
 
         /// <summary>
         /// Vérifie que le nombre de maisons est inférieur à 5 même en y ajoutant
