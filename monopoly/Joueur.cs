@@ -34,6 +34,11 @@ namespace monopoly
             position = plateau.GetDepart();
         }
 
+        public Joueur()
+        {
+
+        }
+
         public bool JouerTour()
         {
             //Lancer les dés
