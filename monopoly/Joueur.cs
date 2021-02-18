@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System;
+using System.Threading;
 
 namespace monopoly
 {
@@ -38,6 +39,7 @@ namespace monopoly
             //Lancer les dés
             Console.BackgroundColor = ConsoleColor.Red;
             Console.WriteLine($"------------------- {nom} joue son tour -------------------");
+            Thread.Sleep(10);
             Console.ResetColor();
             Console.WriteLine($"{nom} a {argent}M$ sur son compte.\n");
             Lancer lancer;

@@ -12,6 +12,8 @@ namespace monopoly
 
         public Partie(uint nb_joueurs)
         {
+            //TODO: Vérifier que le nombre de joueurs est entre 2 et 6
+
             joueurs = new List<Joueur>();
             plateau = new Plateau();
             for (int i = 0; i < nb_joueurs; ++i)
@@ -19,14 +21,13 @@ namespace monopoly
                 joueurs.Add(new Joueur("Joueur " + (i + 1), 500, this.plateau));
             }
 
-            //((Terrain) plateau.cases[1]).EnregistreAcheteur(joueurs[0]); //TEST
         }
 
         public void LancerPartie()
         {
             int index = 0;
 
-            while (true) //vérifie que la partie n'est pas terminée
+            while (true) //TODO: vérifie que la partie n'est pas terminée
             {
                 joueurs[index].JouerTour();
                 index++;

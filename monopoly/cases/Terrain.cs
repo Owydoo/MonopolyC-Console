@@ -128,7 +128,7 @@ namespace monopoly
         {
             proprietaire = j;
 
-            Console.WriteLine(plateau.VerifAutreTerrainPossedeGroupe(couleur, j, this));
+            //Console.WriteLine(plateau.VerifAutreTerrainPossedeGroupe(couleur, j, this));
             this.etat = new EtatAchete();
             
             plateau.SwitchConstructible(couleur);

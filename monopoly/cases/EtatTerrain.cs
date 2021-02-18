@@ -50,7 +50,7 @@ namespace monopoly
             }
             else
             {
-                Console.WriteLine("Lol le nullos !! C'est pas tres startup nation ca...");
+                Console.WriteLine("Vous n'avez pas voulu acheter ce terrain.");
             }
         }
         public override string ToString()

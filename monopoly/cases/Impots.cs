@@ -23,7 +23,9 @@ namespace monopoly.monopoly.cases
 
         public override void StopperSur(Joueur j)
         {
-            throw new NotImplementedException();
+            Console.WriteLine($"Vous êtes arrivé sur la case {nom} et versez donc {frais} M$ à la banque.");
+            j.DebiteCompte(frais);
+            Console.WriteLine($"Il vous reste donc {j.argent} M$ dans votre compte.");
         }
 
         public override string ToString()

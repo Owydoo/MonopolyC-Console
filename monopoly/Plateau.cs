@@ -146,7 +146,6 @@ namespace monopoly
                         //Si le terrain est à l'état constructible et que j en est le proprio.
                         if (typeof(EtatConstructible).IsInstanceOfType(_terrain.etat) && _terrain.proprietaire == j)
                         {
-                            
                             _terrainsConstructibles.Add(_terrain);
                         }
                     }
