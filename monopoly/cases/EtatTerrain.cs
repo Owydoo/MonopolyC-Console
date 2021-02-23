@@ -7,7 +7,7 @@ namespace monopoly
     public abstract class EtatTerrain
     {
         public abstract void PayerLoyer(Joueur j, Terrain terrain);
-        public abstract void Construire(Joueur j, Terrain terrain);
+        public abstract void Construire(Joueur j, Terrain terrain, int nbMaisonsAConstruire);
         public abstract void AcheterTerrain(Joueur j, Terrain terrain);
         public abstract void StopperSur(Joueur j, Terrain terrain);
     }
@@ -19,13 +19,23 @@ namespace monopoly
         {
 
         }
-        public override void Construire(Joueur j, Terrain terrain)
+        public override void Construire(Joueur j, Terrain terrain, int nbMaisonsAConstruire)
         {
 
         }
         public override void AcheterTerrain(Joueur j, Terrain terrain)
         {
-
+            bool achatPossible = j.VerifAchatPossible(terrain.prixDepart);
+            if (achatPossible)
+            {
+                terrain.EnregistreAcheteur(j);
+                j.DebiteCompte(terrain.prixDepart);
+                Console.WriteLine($"Il vous reste {j.argent} sur votre compte.");
+            }
+            else
+            {
+                Console.WriteLine("Vous ne pouvez pas acheter cette propriété.");
+            }
         }
         public override void StopperSur(Joueur j, Terrain terrain)
         {
@@ -34,19 +44,7 @@ namespace monopoly
             string choice = Console.ReadLine().ToLower();
             if (choice == "y")
             {
-                //TODO:Vérifier les sous
-                bool achatPossible = j.VerifAchatPossible(terrain.prixDepart);
-                if (achatPossible)
-                {
-                    terrain.EnregistreAcheteur(j);
-                    j.DebiteCompte(terrain.prixDepart);
-                    Console.WriteLine($"Il vous reste {j.argent} sur votre compte.");
-                }
-                else
-                {
-                    Console.WriteLine("Vous ne pouvez pas acheter cette propriété.");
-                }
-
+                AcheterTerrain(j, terrain);
             }
             else
             {
@@ -65,9 +63,11 @@ namespace monopoly
         public EtatAchete() { }
         public override void PayerLoyer(Joueur j, Terrain terrain)
         {
-
+            Console.WriteLine($"Vous êtes tombés sur {terrain.nom} qui appartient à {terrain.proprietaire.nom}");
+            int loyer = terrain.CalculerLoyer();
+            j.PayerLoyer(terrain.proprietaire, loyer);
         }
-        public override void Construire(Joueur j, Terrain terrain)
+        public override void Construire(Joueur j, Terrain terrain, int nbMaisonsAConstruire)
         {
 
         }
@@ -79,12 +79,7 @@ namespace monopoly
         {
             if (j != terrain.proprietaire)
             {
-                Console.WriteLine($"Vous êtes tombés sur {terrain.nom} qui appartient à {terrain.proprietaire.nom}");
-
-                int loyer = terrain.CalculerLoyer();
-
-                //PayerLoyer(luc, montant)
-                j.PayerLoyer(terrain.proprietaire, loyer);
+                PayerLoyer(j, terrain);
             }
             else
             {
@@ -103,11 +98,41 @@ namespace monopoly
         public EtatConstructible() { }
         public override void PayerLoyer(Joueur j, Terrain terrain)
         {
+            Console.WriteLine($"Vous êtes tombés sur {terrain.nom} qui appartient à {terrain.proprietaire.nom}");
 
+            int loyer = terrain.CalculerLoyerConstructible();
+
+            if (terrain.maisonsConstruites == 5)
+            {
+                Console.WriteLine($"Ce terrain possède un hôtel, vous allez donc devoir payer un loyer de {loyer} M$ à {terrain.proprietaire.nom}");
+            }
+            else
+            {
+                Console.WriteLine($"Ce terrain a {terrain.maisonsConstruites} maisons dessus, vous allez donc devoir payer un loyer de {loyer} M$ à {terrain.proprietaire.nom}");
+            }
+            j.PayerLoyer(terrain.proprietaire, loyer);
         }
-        public override void Construire(Joueur j, Terrain terrain)
+        public override void Construire(Joueur j, Terrain terrain, int nbMaisonsAConstruire)
         {
+            uint prixAPayer = (uint)nbMaisonsAConstruire * terrain.prixMaison;
 
+            if (terrain.VerifNbMaisons(nbMaisonsAConstruire))
+            {
+                if(j.VerifAchatPossible(prixAPayer))
+                {
+                    j.DebiteCompte(prixAPayer);
+                    terrain.maisonsConstruites += (uint)nbMaisonsAConstruire;
+                    Console.WriteLine($"Vous avez dor�navant {terrain.maisonsConstruites} maisons sur le terrain '{terrain.nom}'");
+                }
+                else
+                {
+                    Console.WriteLine("Vous n'avez pas assez d'argent pour acheter autant de maison.");
+                }
+            }
+            else
+            {
+                Console.WriteLine($"Cela ferait trop de maisons pour le terrain {terrain.nom}");
+            }
         }
         public override void AcheterTerrain(Joueur j, Terrain terrain)
         {
@@ -117,22 +142,7 @@ namespace monopoly
         {
             if (j != terrain.proprietaire)
             {
-                Console.WriteLine($"Vous êtes tombés sur {terrain.nom} qui appartient à {terrain.proprietaire.nom}");
-
-                int loyer = terrain.CalculerLoyerConstructible();
-
-                if (terrain.maisonsConstruites == 5)
-                {
-                    Console.WriteLine($"Ce terrain possède un hôtel, vous allez donc devoir payer un loyer de {loyer} M$ à {terrain.proprietaire.nom}");
-                }
-                else
-                {
-                    Console.WriteLine($"Ce terrain a {terrain.maisonsConstruites} maisons dessus, vous allez donc devoir payer un loyer de {loyer} M$ à {terrain.proprietaire.nom}");
-                }
-
-
-                //PayerLoyer(luc, montant)
-                j.PayerLoyer(terrain.proprietaire, loyer);
+                PayerLoyer(j, terrain);
             }
             else
             {
