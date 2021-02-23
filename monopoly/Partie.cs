@@ -97,9 +97,19 @@ namespace monopoly
         {
             int index = 0;
 
-            while (true) //TODO: vérifie que la partie n'est pas terminée
+            while (VerifPartieContinue()) //TODO: vérifie que la partie n'est pas terminée
             {
-                joueurs[index].JouerTour();
+                bool joueurPerdant = joueurs[index].JouerTour();
+
+                //Retirer un joueur ayant perdu
+                if (joueurPerdant)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine($"Le joueur {joueurs[index].nom} est éliminé.");
+                    Console.ResetColor();
+                    joueurs.Remove(joueurs[index]);
+                }
+
                 index++;
                 Thread.Sleep(1000);
 
@@ -108,10 +118,24 @@ namespace monopoly
                     index = 0;
                 }
             }
-            
+
+            Joueur gagnant = joueurs[0];
+
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine($"La partie est terminée. Bravo à {gagnant} pour sa victoire !");
+            Console.ResetColor();
         }
 
 
-
+        /// <summary>
+        /// Renvoie true si la partie continue.
+        /// Renvoie false si la partie se termine, c'est à dire qu'il ne reste plus qu'un joueur.
+        /// </summary>
+        /// <returns></returns>
+        private bool VerifPartieContinue()
+        {
+            return joueurs.Count > 1;
+        }
     }
 }

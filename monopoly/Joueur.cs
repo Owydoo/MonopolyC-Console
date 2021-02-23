@@ -42,7 +42,7 @@ namespace monopoly
         public bool JouerTour()
         {
             //Lancer les dés
-            Console.BackgroundColor = ConsoleColor.Red;
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine($"------------------- {nom} joue son tour -------------------");
             Thread.Sleep(10);
             Console.ResetColor();
@@ -125,7 +125,7 @@ namespace monopoly
         /// Si le joueur a moins que rien d'argent, alors il a perdu.
         /// </summary>
         /// <returns></returns>
-        private bool VerifDefaite()
+        public bool VerifDefaite()
         {
             return (argent < 0);
         }
