@@ -41,7 +41,7 @@ namespace monopoly
 
         public bool JouerTour()
         {
-            //Lancer les dés
+            //Lancer les dï¿½s
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine($"------------------- {nom} joue son tour -------------------");
             Thread.Sleep(10);
@@ -56,8 +56,8 @@ namespace monopoly
                 //Avancer(lancer.First); //truc avant test
 
                 //==================== TEST
-                //Choisir de combien faire avancer le dé
-                Console.WriteLine("Choisir la valeur du dé :");
+                //Choisir de combien faire avancer le dï¿½
+                Console.WriteLine("Choisir la valeur du dï¿½ :");
                 int nbDice = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine("Est-ce un double ? [Y/N]");
                 string choice = Console.ReadLine().ToLower();
@@ -82,11 +82,27 @@ namespace monopoly
 
             } while (lancer.Second);
 
+            Terrain terrainChoisi;
+            do
+            {
+                terrainChoisi = plateau.AfficheCasesConstructiblesEtChoixTerrain(this);
+                if (terrainChoisi != null)
+                {
+                    int nbMaisonsAConstruire = ChoisirNbMaisons(terrainChoisi);
+                    if (!(nbMaisonsAConstruire <= 0))
+                    {
+                        terrainChoisi.Construire(nbMaisonsAConstruire);
+                    }
+                }
+
+            } while (terrainChoisi != null);
+            //Affiches Cases constructibles s'il y en a
+
             return VerifDefaite();
         }
 
         /// <summary>
-        /// Retire du compte du joueur l'argent passé en argument
+        /// Retire du compte du joueur l'argent passï¿½ en argument
         /// </summary>
         /// <param name="_argentADebiter"></param>
         internal void DebiteCompte(uint _argentADebiter)
@@ -95,7 +111,7 @@ namespace monopoly
         }
 
         /// <summary>
-        /// Vérifie si le joueur a plus ou moins d'argent que prix
+        /// Vï¿½rifie si le joueur a plus ou moins d'argent que prix
         /// true si le joueur a suffisamment d'argent.
         /// </summary>
         /// <param name="prixDepart"></param>
@@ -106,8 +122,8 @@ namespace monopoly
         }
 
         /// <summary>
-        /// Débite le compte du joueur du prix du loyer et le crédite au proprio
-        /// Ne débite que ce qui lui reste s'il n'a pas assez de sous.
+        /// Dï¿½bite le compte du joueur du prix du loyer et le crï¿½dite au proprio
+        /// Ne dï¿½bite que ce qui lui reste s'il n'a pas assez de sous.
         /// </summary>
         /// <param name="j"></param>
         /// <param name="montant"></param>
@@ -131,13 +147,13 @@ namespace monopoly
         }
 
         /// <summary>
-        /// Crédite le joueur de montant
+        /// Crï¿½dite le joueur de montant
         /// </summary>
         /// <param name="montant"></param>
         private void CrediteCompte(int montant)
         {
             argent += montant;
-            Console.WriteLine($"{nom} reçoit {montant} et possède donc {argent}M$");
+            Console.WriteLine($"{nom} reï¿½oit {montant} et possï¿½de donc {argent}M$");
         }
 
         private void Avancer(int n)
@@ -150,28 +166,12 @@ namespace monopoly
             }
             position = current;
             position.StopperSur(this);
-            
-            Terrain terrainChoisi;
-            do
-            {
-                terrainChoisi = plateau.AfficheCasesConstructiblesEtChoixTerrain(this);
-                if (terrainChoisi != null)
-                {
-                    int nbMaisonsAConstruire = ChoisirNbMaisons(terrainChoisi);
-                    if (!(nbMaisonsAConstruire <= 0))
-                    {
-                        terrainChoisi.EnregistrerMaisons(nbMaisonsAConstruire);
-                    }
-                }
-
-            } while (terrainChoisi != null);
-            //Affiches Cases constructibles s'il y en a
 
         }
 
         /// <summary>
         /// Demande au joueur combien de maisons veut-il construire sur terrainChoisi et
-        /// renvoie le résultat.
+        /// renvoie le rï¿½sultat.
         /// </summary>
         /// <param name="terrainChoisi"></param>
         /// <returns></returns>

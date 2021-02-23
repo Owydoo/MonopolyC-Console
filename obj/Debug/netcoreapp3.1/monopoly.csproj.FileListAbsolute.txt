@@ -22,3 +22,16 @@ D:\hhers\Documents\Univ_2020-2021\S8\COO2\monopolyTristan\monopoly\obj\Debug\net
 D:\hhers\Documents\Univ_2020-2021\S8\COO2\monopolyTristan\monopoly\obj\Debug\netcoreapp3.1\monopoly.dll
 D:\hhers\Documents\Univ_2020-2021\S8\COO2\monopolyTristan\monopoly\obj\Debug\netcoreapp3.1\monopoly.pdb
 D:\hhers\Documents\Univ_2020-2021\S8\COO2\monopolyTristan\monopoly\obj\Debug\netcoreapp3.1\monopoly.genruntimeconfig.cache
+D:\Prog\MonopolyCs-Console\bin\Debug\netcoreapp3.1\monopoly.exe
+D:\Prog\MonopolyCs-Console\bin\Debug\netcoreapp3.1\monopoly.deps.json
+D:\Prog\MonopolyCs-Console\bin\Debug\netcoreapp3.1\monopoly.runtimeconfig.json
+D:\Prog\MonopolyCs-Console\bin\Debug\netcoreapp3.1\monopoly.runtimeconfig.dev.json
+D:\Prog\MonopolyCs-Console\bin\Debug\netcoreapp3.1\monopoly.dll
+D:\Prog\MonopolyCs-Console\bin\Debug\netcoreapp3.1\monopoly.pdb
+D:\Prog\MonopolyCs-Console\obj\Debug\netcoreapp3.1\monopoly.csprojAssemblyReference.cache
+D:\Prog\MonopolyCs-Console\obj\Debug\netcoreapp3.1\monopoly.AssemblyInfoInputs.cache
+D:\Prog\MonopolyCs-Console\obj\Debug\netcoreapp3.1\monopoly.AssemblyInfo.cs
+D:\Prog\MonopolyCs-Console\obj\Debug\netcoreapp3.1\monopoly.csproj.CoreCompileInputs.cache
+D:\Prog\MonopolyCs-Console\obj\Debug\netcoreapp3.1\monopoly.dll
+D:\Prog\MonopolyCs-Console\obj\Debug\netcoreapp3.1\monopoly.pdb
+D:\Prog\MonopolyCs-Console\obj\Debug\netcoreapp3.1\monopoly.genruntimeconfig.cache
