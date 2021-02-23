@@ -108,6 +108,7 @@ namespace monopoly
                     Console.WriteLine($"Le joueur {joueurs[index].nom} est éliminé.");
                     Console.ResetColor();
                     joueurs.Remove(joueurs[index]);
+                    index--;
                 }
 
                 index++;
