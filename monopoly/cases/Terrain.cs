@@ -59,6 +59,9 @@ namespace monopoly
         public void Construire(int nbMaisonsAConstruire)
         {
             etat.Construire(proprietaire, this, nbMaisonsAConstruire);
+            if (maisonsConstruites == 5) {
+                this.etat = new EtatConstruit();
+            }
         }
 
         public void PayerLoyer(Joueur j)

@@ -101,15 +101,7 @@ namespace monopoly
             Console.WriteLine($"Vous êtes tombés sur {terrain.nom} qui appartient à {terrain.proprietaire.nom}");
 
             int loyer = terrain.CalculerLoyerConstructible();
-
-            if (terrain.maisonsConstruites == 5)
-            {
-                Console.WriteLine($"Ce terrain possède un hôtel, vous allez donc devoir payer un loyer de {loyer} M$ à {terrain.proprietaire.nom}");
-            }
-            else
-            {
-                Console.WriteLine($"Ce terrain a {terrain.maisonsConstruites} maisons dessus, vous allez donc devoir payer un loyer de {loyer} M$ à {terrain.proprietaire.nom}");
-            }
+            Console.WriteLine($"Ce terrain a {terrain.maisonsConstruites} maisons dessus, vous allez donc devoir payer un loyer de {loyer} M$ à {terrain.proprietaire.nom}");
             j.PayerLoyer(terrain.proprietaire, loyer);
         }
         public override void Construire(Joueur j, Terrain terrain, int nbMaisonsAConstruire)
@@ -152,6 +144,42 @@ namespace monopoly
         public override string ToString()
         {
             return "CONSTRUCTIBLE";
+        }
+    }
+
+
+    public class EtatConstruit : EtatTerrain
+    {
+        public EtatConstruit() { }
+        public override void PayerLoyer(Joueur j, Terrain terrain)
+        {
+            Console.WriteLine($"Vous êtes tombés sur {terrain.nom} qui appartient à {terrain.proprietaire.nom}");
+            int loyer = terrain.CalculerLoyerConstructible();
+            Console.WriteLine($"Ce terrain possède un hôtel, vous allez donc devoir payer un loyer de {loyer} M$ à {terrain.proprietaire.nom}");
+            j.PayerLoyer(terrain.proprietaire, loyer);
+        }
+        public override void Construire(Joueur j, Terrain terrain, int nbMaisonsAConstruire)
+        {
+
+        }
+        public override void AcheterTerrain(Joueur j, Terrain terrain)
+        {
+
+        }
+        public override void StopperSur(Joueur j, Terrain terrain)
+        {
+            if (j != terrain.proprietaire)
+            {
+                PayerLoyer(j, terrain);
+            }
+            else
+            {
+                Console.WriteLine($"Vous êtes tombés sur {terrain.nom} qui est votre propriété.");
+            }
+        }
+        public override string ToString()
+        {
+            return "CONSTRUIT AVEC HOTEL";
         }
     }
 
