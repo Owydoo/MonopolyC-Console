@@ -126,8 +126,8 @@ namespace monopoly
 
         /// <summary>
         /// Enregistre d'abord le joueur en tant que propri�taire.
-        /// Si l'acheteur poss�de les autres terrains du groupe, alors
-        /// l'�tat du terrain passe � constructible.
+        /// Si l'acheteur possède les autres terrains du groupe, alors
+        /// l'état du terrain passe à constructible.
         /// </summary>
         /// <param name="j"></param>
         public void EnregistreAcheteur(Joueur j)
@@ -146,7 +146,7 @@ namespace monopoly
             string _propri = "";
             if (proprietaire == null)
             {
-                _propri = "pas de propri�taire";
+                _propri = "pas de propriétaire";
             }
             else
             {
@@ -155,10 +155,10 @@ namespace monopoly
 
             string result = $"nom : {nom}\n" +
                 $"prix d'achat : {prixDepart}\n"+
-                $"loyer de d�part : {loyer}\n" +
+                $"loyer de départ : {loyer}\n" +
                 $"couleur : {couleur}\n" +
-                $"propri�taire : {_propri}\n" +
-                $"�tat du terrain : {etat.ToString()}\n" +
+                $"propriétaire : {_propri}\n" +
+                $"état du terrain : {etat.ToString()}\n" +
                 $"nombres de maisons construites : {maisonsConstruites}";
             return result;
         }

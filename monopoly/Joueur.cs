@@ -46,7 +46,7 @@ namespace monopoly
             Console.WriteLine($"------------------- {nom} joue son tour -------------------");
             Thread.Sleep(10);
             Console.ResetColor();
-            Console.WriteLine($"{nom} a {argent}M$ sur son compte.\n");
+            Console.WriteLine($"{nom} a {argent}M$ sur son compte et est sur la case {position.nom}.\n");
             Lancer lancer;
 
             do
@@ -57,7 +57,7 @@ namespace monopoly
 
                 //==================== TEST
                 //Choisir de combien faire avancer le d�
-                Console.WriteLine("Choisir la valeur du d� :");
+                Console.WriteLine("Choisir la valeur du dé :");
                 int nbDice = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine("Est-ce un double ? [Y/N]");
                 string choice = Console.ReadLine().ToLower();
@@ -85,7 +85,8 @@ namespace monopoly
             Terrain terrainChoisi;
             do
             {
-                terrainChoisi = plateau.AfficheCasesConstructiblesEtChoixTerrain(this);
+                //terrainChoisi = plateau.AfficheCasesConstructiblesEtChoixTerrain(this);
+                terrainChoisi = AfficheCasesConstructiblesEtChoixTerrain();
                 if (terrainChoisi != null)
                 {
                     int nbMaisonsAConstruire = ChoisirNbMaisons(terrainChoisi);
@@ -122,8 +123,8 @@ namespace monopoly
         }
 
         /// <summary>
-        /// D�bite le compte du joueur du prix du loyer et le cr�dite au proprio
-        /// Ne d�bite que ce qui lui reste s'il n'a pas assez de sous.
+        /// Débite le compte du joueur du prix du loyer et le crédite au proprio
+        /// Ne débite que ce qui lui reste s'il n'a pas assez de sous.
         /// </summary>
         /// <param name="j"></param>
         /// <param name="montant"></param>
@@ -153,7 +154,7 @@ namespace monopoly
         private void CrediteCompte(int montant)
         {
             argent += montant;
-            Console.WriteLine($"{nom} re�oit {montant} et poss�de donc {argent}M$");
+            Console.WriteLine($"{nom} reçoit {montant} et possède donc {argent}M$");
         }
 
         private void Avancer(int n)
@@ -180,6 +181,54 @@ namespace monopoly
             Console.WriteLine($"Combien de maisons voulez-vous construire sur {terrainChoisi.nom} ?");
             int nbMaisons = Convert.ToInt32(Console.ReadLine());
             return nbMaisons;
+        }
+
+        /// <summary>
+        /// Affiche au joueur les cases et les couleurs des cases sur lesquelles il peut construire.
+        /// Renvoie le terrain qu'il a choisi.
+        /// </summary>
+        internal Terrain AfficheCasesConstructiblesEtChoixTerrain()
+        {
+            List<Couleur> _couleursConstructibles = plateau.GetCouleursConstructible(this);
+            if (_couleursConstructibles.Count == 0) //Aucun terrain disponible à la construction
+            {
+                Console.WriteLine("Vous ne pouvez pas construire de maisons pour le moment.");
+                return null;
+            }
+            else
+            {
+                int indiceTerrain = 0; //Un indice sur chaque terrain qui permettra au joueur de choisir où construire
+
+                List<Terrain> _terrainsConstructibles = plateau.GetTerrainsConstructible(this, _couleursConstructibles);
+                foreach (var _couleur in _couleursConstructibles)
+                {
+                    Console.WriteLine($"Dans le groupe {_couleur} : ");
+                    foreach (var _terrain in _terrainsConstructibles)
+                    {
+                        indiceTerrain++;
+                        Console.WriteLine($"{indiceTerrain} : {_terrain.nom} qui a déjà {_terrain.maisonsConstruites} maisons. ({_terrain.prixMaison} M$ par maison achetée)");
+                    }
+                    Console.WriteLine("---");
+                }
+
+                Console.WriteLine("Indiquez le numéro du terrain sur lequel vous voulez construire, et 0 si vous ne voulez pas construire.");
+                //TODO : gestion d'erreur si le choix donné n'est pas un entier.
+                int choixTerrain = Convert.ToInt32(Console.ReadLine().ToLower());
+                if (!(choixTerrain <= 0 || choixTerrain > _terrainsConstructibles.Count))
+                {
+                    return _terrainsConstructibles[choixTerrain - 1];
+                }
+                else if (choixTerrain == 0)
+                {
+                    return null;
+                }
+
+                else
+                {
+                    Console.WriteLine("Veuillez indiquer un nombre correspondant aux indices donnés plus haut.");
+                    return null;
+                }
+            }
         }
     }
 }

@@ -87,12 +87,18 @@ namespace monopoly
         {
             Lancer l = DiceLauncher.LancerDes();
 
-            int frais = l.First * 4;
+            int frais;
 
             if (plateau.VerifCompagniesPossedeesPar(this.proprietaire))
             {
                 frais = l.First * 10;
             }
+            else
+            {
+                frais = l.First * 4;
+            }
+
+            Console.WriteLine($"Nouveau lancer de dés pour le calcul des frais : {l.First}");
             return frais;
         }
 

@@ -17,7 +17,7 @@ namespace monopoly
 
         public override void StopperSur(Joueur j)
         {
-            throw new System.NotImplementedException();
+
         }
     }
 }

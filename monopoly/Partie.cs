@@ -124,7 +124,7 @@ namespace monopoly
 
 
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine($"La partie est terminée. Bravo à {gagnant} pour sa victoire !");
+            Console.WriteLine($"La partie est terminée. Bravo à {gagnant.nom} pour sa victoire !");
             Console.ResetColor();
         }
 

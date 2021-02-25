@@ -1,29 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Prog\\MonopolyCs-Console\\monopoly.csproj": {}
+    "D:\\hhers\\Documents\\Univ_2020-2021\\S8\\COO2\\monopolyTristan\\monopoly\\monopoly.csproj": {}
   },
   "projects": {
-    "D:\\Prog\\MonopolyCs-Console\\monopoly.csproj": {
+    "D:\\hhers\\Documents\\Univ_2020-2021\\S8\\COO2\\monopolyTristan\\monopoly\\monopoly.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Prog\\MonopolyCs-Console\\monopoly.csproj",
+        "projectUniqueName": "D:\\hhers\\Documents\\Univ_2020-2021\\S8\\COO2\\monopolyTristan\\monopoly\\monopoly.csproj",
         "projectName": "monopoly",
-        "projectPath": "D:\\Prog\\MonopolyCs-Console\\monopoly.csproj",
-        "packagesPath": "C:\\Users\\Chancyleg\\.nuget\\packages\\",
-        "outputPath": "D:\\Prog\\MonopolyCs-Console\\obj\\",
+        "projectPath": "D:\\hhers\\Documents\\Univ_2020-2021\\S8\\COO2\\monopolyTristan\\monopoly\\monopoly.csproj",
+        "packagesPath": "C:\\Users\\hhers\\.nuget\\packages\\",
+        "outputPath": "D:\\hhers\\Documents\\Univ_2020-2021\\S8\\COO2\\monopolyTristan\\monopoly\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Chancyleg\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\hhers\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -35,6 +38,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "imports": [
             "net461",
             "net462",
@@ -50,7 +54,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     }

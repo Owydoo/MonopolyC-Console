@@ -86,44 +86,49 @@ namespace monopoly
         /// Affiche au joueur les cases et les couleurs des cases sur lesquelles il peut construire.
         /// Renvoie le terrain qu'il a choisi.
         /// </summary>
-        internal Terrain AfficheCasesConstructiblesEtChoixTerrain(Joueur j)
-        {
-            List<Couleur> _couleursConstructibles = GetCouleursConstructible(j);
-            if (_couleursConstructibles.Count == 0) //Aucun terrain disponible à la construction
-            {
-                Console.WriteLine("Vous ne pouvez pas construire de maisons pour le moment.");
-                return null;
-            }
-            else
-            {
-                int indiceTerrain = 0; //Un indice sur chaque terrain qui permettra au joueur de choisir où construire
+        //internal Terrain AfficheCasesConstructiblesEtChoixTerrain(Joueur j)
+        //{
+        //    List<Couleur> _couleursConstructibles = GetCouleursConstructible(j);
+        //    if (_couleursConstructibles.Count == 0) //Aucun terrain disponible à la construction
+        //    {
+        //        Console.WriteLine("Vous ne pouvez pas construire de maisons pour le moment.");
+        //        return null;
+        //    }
+        //    else
+        //    {
+        //        int indiceTerrain = 0; //Un indice sur chaque terrain qui permettra au joueur de choisir où construire
 
-                List<Terrain> _terrainsConstructibles = GetTerrainsConstructible(j, _couleursConstructibles);
-                foreach (var _couleur in _couleursConstructibles)
-                {
-                    Console.WriteLine($"Dans le groupe {_couleur} : ");
-                    foreach (var _terrain in _terrainsConstructibles)
-                    {
-                        indiceTerrain++;
-                        Console.WriteLine($"{indiceTerrain} : {_terrain.nom} qui a déjà {_terrain.maisonsConstruites} maisons.");
-                    }
-                    Console.WriteLine("---");
-                }
+        //        List<Terrain> _terrainsConstructibles = GetTerrainsConstructible(j, _couleursConstructibles);
+        //        foreach (var _couleur in _couleursConstructibles)
+        //        {
+        //            Console.WriteLine($"Dans le groupe {_couleur} : ");
+        //            foreach (var _terrain in _terrainsConstructibles)
+        //            {
+        //                indiceTerrain++;
+        //                Console.WriteLine($"{indiceTerrain} : {_terrain.nom} qui a déjà {_terrain.maisonsConstruites} maisons.");
+        //            }
+        //            Console.WriteLine("---");
+        //        }
 
-                Console.WriteLine("Indiquez le numéro du terrain sur lequel vous voulez construire, et 0 si vous ne voulez pas construire.");
-                //TODO : gestion d'erreur si le choix donné n'est pas un entier.
-                int choixTerrain = Convert.ToInt32(Console.ReadLine().ToLower());
-                if (!(choixTerrain <= 0 || choixTerrain > _terrainsConstructibles.Count))
-                {
-                    return _terrainsConstructibles[choixTerrain - 1];
-                }
-                else
-                {
-                    Console.WriteLine("Veuillez indiquer un nombre correspondant aux indices donnés plus haut.");
-                    return null;
-                }
-            }
-        }
+        //        Console.WriteLine("Indiquez le numéro du terrain sur lequel vous voulez construire, et 0 si vous ne voulez pas construire.");
+        //        //TODO : gestion d'erreur si le choix donné n'est pas un entier.
+        //        int choixTerrain = Convert.ToInt32(Console.ReadLine().ToLower());
+        //        if (!(choixTerrain <= 0 || choixTerrain > _terrainsConstructibles.Count))
+        //        {
+        //            return _terrainsConstructibles[choixTerrain - 1];
+        //        }
+        //        else if (choixTerrain == 0)
+        //        {
+        //            return null;
+        //        }
+
+        //        else 
+        //        {
+        //            Console.WriteLine("Veuillez indiquer un nombre correspondant aux indices donnés plus haut.");
+        //            return null;
+        //        }
+        //    }
+        //}
 
         /// <summary>
         /// Renvoie la liste des terrains dans lesquelles le joueur peut construire des maisons
@@ -131,7 +136,7 @@ namespace monopoly
         /// <param name="j"></param>
         /// <param name="couleursConstructibles"></param>
         /// <returns></returns>
-        private List<Terrain> GetTerrainsConstructible(Joueur j, List<Couleur> couleursConstructibles)
+        public List<Terrain> GetTerrainsConstructible(Joueur j, List<Couleur> couleursConstructibles)
         {
             List<Terrain> _terrainsConstructibles = new List<Terrain>();
 
@@ -158,7 +163,7 @@ namespace monopoly
         /// Renvoie une liste de couleur contenant les couleurs dans lesquelles j peut construire des maisons.
         /// </summary>
         /// <param name="j"></param>
-        private List<Couleur> GetCouleursConstructible(Joueur j)
+        public List<Couleur> GetCouleursConstructible(Joueur j)
         {
             List<Couleur> _couleurConstructibles = new List<Couleur>();
             foreach (KeyValuePair<Couleur, List<Terrain>> _colorAndTerrain in groupesTerrains)
@@ -225,8 +230,9 @@ namespace monopoly
                 foreach (var _terrain in groupesTerrains[couleur])
                 {
                     _terrain.etat = new EtatConstructible();
-                    Console.WriteLine("SWITCHAROOOOOO");
+                    //Console.WriteLine("SWITCHAROOOOOO");
                 }
+                Console.WriteLine($"Les terrains de la couleur {couleur} deviennent constructible.");
             }
         }   
 

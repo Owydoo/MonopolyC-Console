@@ -12,13 +12,15 @@ namespace monopoly
         public override void PasserSur(Joueur j)
         {
             //TODO: +200 !!!
-            Console.WriteLine($"Passage sur : {nom}");
+            j.argent += 200;
+
+            Console.WriteLine($"Vous passez par la case départ, vous gagnez 200 M$");
             Thread.Sleep(1000);
         }
 
         public override void StopperSur(Joueur j)
         {
-            throw new System.NotImplementedException();
+            
         }
     }
 }

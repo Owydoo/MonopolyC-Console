@@ -114,7 +114,7 @@ namespace monopoly
                 {
                     j.DebiteCompte(prixAPayer);
                     terrain.maisonsConstruites += (uint)nbMaisonsAConstruire;
-                    Console.WriteLine($"Vous avez dor�navant {terrain.maisonsConstruites} maisons sur le terrain '{terrain.nom}'");
+                    Console.WriteLine($"Vous avez dorénavant {terrain.maisonsConstruites} maisons sur le terrain '{terrain.nom}'");
                 }
                 else
                 {
